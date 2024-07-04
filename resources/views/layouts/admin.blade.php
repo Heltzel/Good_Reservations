@@ -23,8 +23,9 @@
             x-data="{ open: false }">
             <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
                 <a href="#"
-                    class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">Flowtrail
-                    UI</a>
+                    class="text-lg font-semibold tracking-widest text-gray-900 uppercase  dark:text-white focus:outline-none focus:shadow-outline text-left border-b-4 border-gray-500 pb-2">Good
+                    Reservations</a>
+
                 <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
                     <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
                         <path x-show="!open" fill-rule="evenodd"
@@ -38,18 +39,18 @@
             </div>
             <nav :class="{ 'block': open, 'hidden': !open }"
                 class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
-                <x-admin-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
+                <x-admin-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.*')">
                     {{ __('Categories') }}
                 </x-admin-nav-link>
 
-                <x-admin-nav-link :href="route('admin.menus.index')" :active="request()->routeIs('admin.menus.index')">
+                <x-admin-nav-link :href="route('admin.menus.index')" :active="request()->routeIs('admin.menus.*')">
                     {{ __('Menus') }}
                 </x-admin-nav-link>
-                <x-admin-nav-link :href="route('admin.tables.index')" :active="request()->routeIs('admin.tables.index')">
+                <x-admin-nav-link :href="route('admin.tables.index')" :active="request()->routeIs('admin.tables.*')">
                     {{ __('Tables') }}
                 </x-admin-nav-link>
 
-                <x-admin-nav-link :href="route('admin.reservations.index')" :active="request()->routeIs('admin.reservations.index')">
+                <x-admin-nav-link :href="route('admin.reservations.index')" :active="request()->routeIs('admin.reservations.*')">
                     {{ __('Reservations') }}
                 </x-admin-nav-link>
 

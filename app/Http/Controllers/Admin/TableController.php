@@ -21,9 +21,10 @@ class TableController extends Controller
                 'guest_num' => $table->guest_number,
                 'status' => $table->status,
                 'location' => $table->location,
+                'action' => ['name' => 'Show', 'route' => 'admin.tables.show', 'param' => 'table']
             ];
         });
-        $headers = ['id', 'Name', 'Guestnumber', 'status', 'location'];
+        $headers = ['id', 'Name', 'Guestnumber', 'status', 'location', 'Action'];
         return view("admin.tables.index", compact(["headers", "rows", "tableTitle"]));
     }
 
@@ -46,15 +47,15 @@ class TableController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Table $table)
     {
-        //
+        return view('admin.tables.show', compact("table"));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Table $table)
     {
         //
     }
@@ -62,7 +63,7 @@ class TableController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Table $table)
     {
         //
     }
@@ -70,7 +71,7 @@ class TableController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Table $table)
     {
         //
     }

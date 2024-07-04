@@ -18,6 +18,14 @@
                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 <img src="{{ $cellVal }}" alt="" class="max-w-12">
                             </td>
+                        @elseif ($cellKey == 'action')
+                            <td class="text-center ">
+                                <a href="{{ route($cellVal['route'], [$cellVal['param'] => $row['id']]) }}">
+                                    <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-lg ">
+                                        {{ $cellVal['name'] }}
+                                    </button>
+                                </a>
+                            </td>
                         @else
                             <td scope="row"
                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">

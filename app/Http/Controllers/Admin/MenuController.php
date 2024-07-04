@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class MenuController extends Controller
 {
@@ -21,9 +21,10 @@ class MenuController extends Controller
                 'description' => $menu->description,
                 'price' => $menu->price,
                 'image' => $menu->image,
+                'action' => ['name' => 'Show', 'route' => 'admin.menus.show', 'param' => 'menu']
             ];
         });
-        $headers = ['id', 'Name', 'Description', 'Price', 'Image'];
+        $headers = ['id', 'Name', 'Description', 'Price', 'Image', 'Action'];
         return view("admin.menus.index", compact(["headers", "rows", "tableTitle"]));
     }
 
@@ -46,15 +47,15 @@ class MenuController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Menu $menu)
     {
-        //
+        return view('admin.menus.show', compact("menu"));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Menu $menu)
     {
         //
     }
@@ -62,7 +63,7 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Menu $menu)
     {
         //
     }
@@ -70,7 +71,7 @@ class MenuController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Menu $menu)
     {
         //
     }

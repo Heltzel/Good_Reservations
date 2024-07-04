@@ -22,9 +22,10 @@ class ReservationController extends Controller
                 'phone' => $reservation->tel_number,
                 'when' => $reservation->res_date,
                 'guest_num' => $reservation->guest_number,
+                'action' => ['name' => 'Show', 'route' => 'admin.reservations.show', 'param' => 'reservation']
             ];
         });
-        $headers = ['id', 'Name', 'Email', 'Phone', 'When', "Guestnumber"];
+        $headers = ['id', 'Name', 'Email', 'Phone', 'When', "Guestnumber", 'Action'];
         return view("admin.reservations.index", compact(["headers", "rows", "tableTitle"]));
     }
 
@@ -47,15 +48,15 @@ class ReservationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Reservation $reservation)
     {
-        //
+        return view('admin.reservations.show', compact("reservation"));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Reservation $reservation)
     {
         //
     }
@@ -63,7 +64,7 @@ class ReservationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Reservation $reservation)
     {
         //
     }
@@ -71,7 +72,7 @@ class ReservationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Reservation $reservation)
     {
         //
     }
