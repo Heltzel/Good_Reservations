@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Menu;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Category;
@@ -28,5 +29,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Category::factory()->count(5)->create();
+        Menu::factory()->count(5)->create();
     }
 }

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Menu;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class MenuController extends Controller
 {
@@ -12,7 +13,18 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return view("admin.menus.index");
+        $tableTitle = "Menus";
+        $rows = Menu::all()->map(function ($category) {
+            return [
+                'id' => $category->id,
+                'name' => $category->name,
+                'description' => $category->description,
+                'price' => $category->price,
+                'image' => $category->image,
+            ];
+        });
+        $headers = ['id', 'Name', 'Description', 'Price', 'Image'];
+        return view("admin.menus.index", compact(["headers", "rows", "tableTitle"]));
     }
 
     /**
