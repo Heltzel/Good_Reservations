@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -12,7 +13,19 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        return view("admin.reservations.index");
+        $tableTitle = "Reservations";
+        $rows = Reservation::all()->map(function ($reservation) {
+            return [
+                'id' => $reservation->id,
+                'name' => $reservation->last_name,
+                'email' => $reservation->email,
+                'phone' => $reservation->tel_number,
+                'when' => $reservation->res_date,
+                'guest_num' => $reservation->guest_number,
+            ];
+        });
+        $headers = ['id', 'Name', 'Email', 'Phone', 'When', "Guestnumber"];
+        return view("admin.reservations.index", compact(["headers", "rows", "tableTitle"]));
     }
 
     /**

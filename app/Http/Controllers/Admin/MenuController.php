@@ -14,13 +14,13 @@ class MenuController extends Controller
     public function index()
     {
         $tableTitle = "Menus";
-        $rows = Menu::all()->map(function ($category) {
+        $rows = Menu::all()->map(function ($menu) {
             return [
-                'id' => $category->id,
-                'name' => $category->name,
-                'description' => $category->description,
-                'price' => $category->price,
-                'image' => $category->image,
+                'id' => $menu->id,
+                'name' => $menu->name,
+                'description' => $menu->description,
+                'price' => $menu->price,
+                'image' => $menu->image,
             ];
         });
         $headers = ['id', 'Name', 'Description', 'Price', 'Image'];

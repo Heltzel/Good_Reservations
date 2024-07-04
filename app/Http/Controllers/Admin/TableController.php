@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Table;
 use Illuminate\Http\Request;
 
 class TableController extends Controller
@@ -12,7 +13,18 @@ class TableController extends Controller
      */
     public function index()
     {
-        return view("admin.tables.index");
+        $tableTitle = "Tables";
+        $rows = Table::all()->map(function ($table) {
+            return [
+                'id' => $table->id,
+                'name' => $table->name,
+                'guest_num' => $table->guest_number,
+                'status' => $table->status,
+                'location' => $table->location,
+            ];
+        });
+        $headers = ['id', 'Name', 'Guestnumber', 'status', 'location'];
+        return view("admin.tables.index", compact(["headers", "rows", "tableTitle"]));
     }
 
     /**
