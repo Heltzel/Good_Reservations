@@ -13,10 +13,17 @@ class CategoryController extends Controller
      */
     public function index()
     {
-
-        $rows = Category::all();
+        $tableTitle = "Categories";
+        $rows = Category::all()->map(function ($category) {
+            return [
+                'id' => $category->id,
+                'name' => $category->name,
+                'description' => $category->description,
+                'image' => $category->image,
+            ];
+        });
         $headers = ['id', 'Name', 'Description', 'Image'];
-        return view("admin.categories.index", compact(["headers", "rows"]));
+        return view("admin.categories.index", compact(["headers", "rows", "tableTitle"]));
     }
 
     /**

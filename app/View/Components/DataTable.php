@@ -10,16 +10,19 @@ class DataTable extends Component
 {
     public $headers;
     public $rows;
+    public $tableTitle;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($headers, $rows)
+    public function __construct($headers, $rows, $tableTitle)
     {
+
         $this->headers = $headers;
         $this->rows = $rows;
+        $this->tableTitle = $tableTitle;
     }
 
     /**

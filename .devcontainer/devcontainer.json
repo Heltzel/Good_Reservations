@@ -19,7 +19,8 @@
 				"formulahendry.auto-close-tag",
 				"formulahendry.auto-rename-tag",
 				"MehediDracula.php-namespace-resolver",
-				"mhutchie.git-graph"
+				"mhutchie.git-graph",
+				"shufo.vscode-blade-formatter"
 
 			],
 			"settings": {}
