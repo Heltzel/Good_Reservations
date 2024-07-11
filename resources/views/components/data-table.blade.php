@@ -20,11 +20,14 @@
                             </td>
                         @elseif ($cellKey == 'action')
                             <td class="text-center ">
-                                <a href="{{ route($cellVal['route'], [$cellVal['param'] => $row['id']]) }}">
-                                    <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-lg ">
-                                        {{ $cellVal['name'] }}
-                                    </button>
-                                </a>
+                                <x-crud-button action="show"
+                                    route="{{ route($cellVal['route'], [$cellVal['param'] => $row['id']]) }}">
+                                    {{ $cellVal['name'] }}
+                                </x-crud-button>
+                                <x-crud-button action="edit"
+                                    route="{{ route($cellVal['route'], [$cellVal['param'] => $row['id']]) }}">
+                                    {{ $cellVal['name'] }}
+                                </x-crud-button>
                             </td>
                         @else
                             <td scope="row"
