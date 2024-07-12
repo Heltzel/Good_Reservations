@@ -4,14 +4,9 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <h2>{{ $menu->name }}</h2>
-                </div>
-            </div>
-        </div>
+    <span>Details for menu: <strong>{{ $menu->name }}</strong></span>
+    <div class="flex justify-center">
+        <x-detail-card-menu :image="$menu->image" :name="$menu->name" :description="$menu->description" :price="$menu->price" :editRoute="route('admin.menus.edit', [$menu->id])"
+            :indexRoute="route('admin.menus.index')" />
     </div>
 </x-admin-layout>

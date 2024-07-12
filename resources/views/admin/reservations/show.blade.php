@@ -4,14 +4,10 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <h2>{{ $reservation->last_name }}</h2>
-                </div>
-            </div>
-        </div>
+    <span>Details for reservation: <strong>{{ $reservation->first_name }}</strong>&nbsp;
+        <strong>{{ $reservation->last_name }}</strong></span>
+    <div class="flex justify-center">
+        <x-detail-card-reservations :firstName="$reservation->first_name" :lastName="$reservation->last_name" :phone="$reservation->tel_number" :email="$reservation->email"
+            :resDate="$reservation->res_date" :tableNum="$reservation->table_id" :groupSize="$reservation->guest_number" :editRoute="route('admin.reservations.edit', [$reservation->id])" :indexRoute="route('admin.reservations.index')" />
     </div>
 </x-admin-layout>

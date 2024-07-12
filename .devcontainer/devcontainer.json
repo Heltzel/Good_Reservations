@@ -20,8 +20,8 @@
 				"formulahendry.auto-rename-tag",
 				"MehediDracula.php-namespace-resolver",
 				"mhutchie.git-graph",
-				"shufo.vscode-blade-formatter"
-
+				"shufo.vscode-blade-formatter",
+				"bradlc.vscode-tailwindcss"
 			],
 			"settings": {}
 		}

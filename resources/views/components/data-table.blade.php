@@ -1,5 +1,9 @@
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <h2 class="text-3xl font-extrabold p-2">{{ $tableTitle }}</h2>
+{{-- <div class="relative overflow-x-auto shadow-md sm:rounded-lg"> --}}
+<div
+    class="relative overflow-x-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-4">
+    <div class="prose lg:prose-xl mb-8">
+        <h2>{{ $tableTitle }}</h2>
+    </div>
     <table class="w-full text-sm text-left rtl:text-right text-gray-800 dark:text-gray-400">
         <thead class=" text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -21,10 +25,6 @@
                         @elseif ($cellKey == 'action')
                             <td class="text-center ">
                                 <x-crud-button action="show"
-                                    route="{{ route($cellVal['route'], [$cellVal['param'] => $row['id']]) }}">
-                                    {{ $cellVal['name'] }}
-                                </x-crud-button>
-                                <x-crud-button action="edit"
                                     route="{{ route($cellVal['route'], [$cellVal['param'] => $row['id']]) }}">
                                     {{ $cellVal['name'] }}
                                 </x-crud-button>
